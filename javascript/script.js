@@ -1,6 +1,6 @@
 var todoList = {
   todos: [],
-  displayTodos: function () {
+  displayTodos: function() {
     if (this.todos.length === 0) {
       console.log('Your list is empty!');
     } else {
@@ -15,6 +15,7 @@ var todoList = {
     }
   },
   addTodo: function (todoText) {
+    debugger;
     this.todos.push({
       todoText: todoText,
       completed: false
