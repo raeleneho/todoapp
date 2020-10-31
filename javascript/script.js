@@ -19,30 +19,21 @@ var todoList = {
   toggleAll: function() {
     var totalTodos = this.todos.length;
     var completedTodos = 0;
-    // get number of completed todos.
 
+    // get number of completed todos.
     this.todos.forEach(function(todo) {
-      if (this.todos[i].completed === true) {
+      if (todo.completed === true) {
         completedTodos++;
       }
     });
-    // if (completedTodos === totalTodos) {
-    //   // make everything false.
-    //   this.todos.forEach(function(todo) {
-    //     todo.completed = false;
-    //   });
-    //     // Case 2: Otherwise, make everything true.
-    // } else {
-    //   this.todos.forEach(function(todo) {
-    //     todo.completed = true;
-    //   });
-    // }
+
     this.todos.forEach(function(todo) {
-    // Case 1: if everything's true, make everything false.
+      // Case 1: if everything's true, make everything false.
       if (completedTodos === totalTodos) {
         todo.completed = false;
+        // Case 2: Otherwise, make everything true.
       } else {
-        todo.completed - true;
+        todo.completed = true;
       }
     });
   }
@@ -83,21 +74,6 @@ var view = {
   displayTodos: function() { 
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
-    // for (var i = 0; i < todoList.todos.length; i++) {
-    //   var todoLi = document.createElement('li');
-    //   var todo = todoList.todos[i];
-    //   var todoTextWithCompletion = '';
-
-    //   if (todo.completed === true) {
-    //     todoTextWithCompletion = '(x) ' + todo.todoText;
-    //   } else {
-    //     todoTextWithCompletion = '( ) ' + todo.todoText;
-    //   }
-    //   todoLi.id = i;
-    //   todoLi.textContent = todoTextWithCompletion;
-    //   todoLi.appendChild(this.createDeleteButton());
-    //   todosUl.appendChild(todoLi);
-    // }
 
     todoList.todos.forEach(function(todo, position) {
       var todoLi = document.createElement('li');
@@ -107,7 +83,7 @@ var view = {
         todoTextWithCompletion = '(x) ' + todo.todoText;
       } else {
         todoTextWithCompletion = '( ) ' + todo.todoText;
-      }
+      };
 
       todoLi.id = position;
       todoLi.textContent = todoTextWithCompletion;
